@@ -8,9 +8,8 @@ namespace RectangleSquare.Composition
     {
         private IRectangleAreaEquation _areaEquation;
 
-        public Square(double sideSize, IRectangleAreaEquation areaEquation = null)
+        public Square(IRectangleAreaEquation areaEquation = null)
         {
-            SideSize = sideSize;
             _areaEquation = areaEquation ?? new RectangleAreaEquation();
         }
 

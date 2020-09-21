@@ -4,18 +4,13 @@ using System.Text;
 
 namespace RectangleSquare.Composition
 {
-    public class Rectangle : IHaveArea //, ICanBeDrawn
+    public class Rectangle : IHaveArea
     {
         private IRectangleAreaEquation _areaEquation;
 
         public Rectangle(
-            double length, 
-            double height, 
             IRectangleAreaEquation areaEquation = null) {
-            // ICanBeDrawn
 
-            Length = length;
-            Height = height;
             _areaEquation = areaEquation ?? new RectangleAreaEquation();
 
         }
@@ -28,11 +23,5 @@ namespace RectangleSquare.Composition
         {
             return _areaEquation.CalculateArea(Length, Height);
         }
-
-        /*
-         public void Draw(Graphics g){
-             _drawStrategy.draw(g);
-         }
-         */
     }
 }

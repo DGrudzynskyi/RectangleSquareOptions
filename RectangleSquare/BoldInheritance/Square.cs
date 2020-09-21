@@ -6,28 +6,31 @@ namespace RectangleSquare.BoldInheritance
 {
     public class Square : Rectangle
     {
-        private double _length;
-        private double _height;
-
         public Square(double side) : base(side, side)
         {
         }
 
-        public new double Length
+        public override double Length
         {
-            get => _length;
-            set => SetSize(value);
+            get => base.Length;
+            set {
+                if (value < 4 || value > 6)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                SetSize(value);
+            }
         }
 
-        public new double Height
+        public override double Height
         {
-            get => _height;
+            get => base.Height;
             set => SetSize(value);
         }
 
         public void SetSize(double size) {
-            _length = size;
-            _height = size;
+            base.Length = size;
+            base.Height = size;
         }
     }
 }

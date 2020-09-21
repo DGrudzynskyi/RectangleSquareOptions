@@ -14,9 +14,15 @@ namespace RectangleSquare.BoldInheritance
             _height = height;
         }
 
-        public double Length { get => _length; set => _length = value; }
+        public virtual double Length { get => _length; set {
+                if (value < 0 || value > 10) {
+                    throw new ArgumentOutOfRangeException();
+                }
+                _length = value; 
+            } 
+        }
 
-        public double Height { get => _height; set => _height = value; }
+        public virtual double Height { get => _height; set => _height = value; }
 
         public double Area()
         {
